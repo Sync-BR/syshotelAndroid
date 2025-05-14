@@ -1,6 +1,7 @@
 package com.example.syshotel.resource;
 
 
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -32,9 +33,9 @@ public class ViaCepResource {
         this.configRoute = new Config();
     }
 
-    public void searchCep(String cep, CepResourceInterface callback){
+    public void searchCep(String cep, CepResourceInterface callback) {
         Request request = new Request.Builder()
-                .url(configRoute.ViaCep+cep+"/json/")
+                .url(configRoute.ViaCep + cep + "/json/")
                 .get()
                 .build();
         clientHttp.newCall(request).enqueue(new Callback() {
@@ -45,9 +46,17 @@ public class ViaCepResource {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if(response.isSuccessful()){
-                    callback.onSuccess(mapper.convertCepToAddressDto(gson.fromJson(response.body().string(), ViaCepDto.class)));
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    if (responseBody.contains("\"erro\"")) {
+                        callback.onError("Cep não encontrado");
+                        return;
+                    }
+                    callback.onSuccess(mapper.convertCepToAddressDto(gson.fromJson(responseBody, ViaCepDto.class)));
+                } else {
+                    callback.onError("Erro ao buscar CEP");
                 }
+
             }
         });
     }

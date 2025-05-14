@@ -1,6 +1,7 @@
 package com.example.syshotel.resource.service;
 
 import android.content.Context;
+import android.util.Log;
 
 
 import com.example.syshotel.model.address.dto.AddressDto;
@@ -14,10 +15,8 @@ import okhttp3.OkHttpClient;
 public class ViaCepServiceResource implements ViaCepServiceInterface {
 
     private final ViaCepResource resource;
-    private Context context;
 
-    public ViaCepServiceResource(Context context) {
-        this.context = context;
+    public ViaCepServiceResource() {
         this.resource = new ViaCepResource(new OkHttpClient(), new Gson());
     }
 
