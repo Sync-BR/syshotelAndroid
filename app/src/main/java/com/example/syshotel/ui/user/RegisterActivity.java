@@ -70,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //Inicialização de objetos
         this.userService = new UserServiceResource(new UserResource(new Gson(), new OkHttpClient()), this);
-        this.cepService = new ViaCepServiceResource(this);
+        this.cepService = new ViaCepServiceResource();
         this.validation = new RegisterValidation();
         this.addressMapper = new AddressMapper();
         this.clientMapper = new ClientMapper();
@@ -88,11 +88,15 @@ public class RegisterActivity extends AppCompatActivity {
             cepService.searchCep(utilText.safeText(cep), new CepResourceInterface() {
                 @Override
                 public void onSuccess(AddressDto address) {
+                    if(address == null){
+                        runOnUiThread(()-> Toast.makeText(RegisterActivity.this, "Cep não encontrado!", Toast.LENGTH_LONG).show());
+                    }
                     fillAddress(address);
                 }
 
                 @Override
                 public void onError(String error) {
+                    runOnUiThread(()-> Toast.makeText(RegisterActivity.this, error, Toast.LENGTH_LONG).show());
 
                 }
             });
