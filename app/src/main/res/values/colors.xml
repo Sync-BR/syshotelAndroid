@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cores principais do hotel -->
+    <color name="dark_blue">#1A237E</color>
+    <color name="medium_blue">#303F9F</color>
+    <color name="light_blue">#7986CB</color>
+    <color name="light_gold">#FFD700</color>
+    <color name="dark_gold">#FFC600</color>
+
+    <!-- Cores de texto -->
+    <color name="dark_text">#212121</color>
+    <color name="light_text">#FFFFFF</color>
+
+    <!-- Cores auxiliares -->
+    <color name="white">#FFFFFF</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="white_transparent">#DDFFFFFF</color>
+
+    <!-- Cores para gradiente -->
+    <color name="gradient_start">#1A237E</color>
+    <color name="gradient_end">#303F9F</color>
+
+
+
+    <!-- Adicione estas cores ao seu arquivo colors.xml -->
+    <color name="dark_blue_60">#991A237E</color>
+    <color name="dark_blue_30">#4D1A237E</color>
+    <color name="dark_blue_20">#331A237E</color>
+</resources>
