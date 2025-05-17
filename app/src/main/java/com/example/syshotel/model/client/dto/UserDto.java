@@ -1,6 +1,8 @@
 package com.example.syshotel.model.client.dto;
 
-public class UserDto {
+import java.io.Serializable;
+
+public class UserDto  implements Serializable {
     private final String username;
     private final String password;
 

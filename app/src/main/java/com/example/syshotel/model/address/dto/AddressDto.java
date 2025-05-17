@@ -1,6 +1,8 @@
 package com.example.syshotel.model.address.dto;
 
-public class AddressDto {
+import java.io.Serializable;
+
+public class AddressDto  implements Serializable {
     private  String clientStreet;
     private  String clientComplement;
     private  String clientNeighborhood;

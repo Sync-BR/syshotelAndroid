@@ -2,8 +2,9 @@ package com.example.syshotel.model.client.dto;
 
 import com.example.syshotel.model.address.dto.AddressDto;
 
-public class ClientDto {
+import java.io.Serializable;
 
+public class ClientDto implements Serializable {
     private  String clientName;
     private  String clientCpf;
     private  String clientEmail;

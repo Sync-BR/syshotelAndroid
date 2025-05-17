@@ -7,7 +7,7 @@ public class Config {
 
     static class ConfigurationRoute {
         public static String protocol = "http";
-        public static String route = "127.0.0.1";
+        public static String route = "186.247.89.58";
         public static Integer port = 8080;
     }
 
@@ -19,5 +19,6 @@ public class Config {
     public static class ConfigurationApi {
         public static String routeClient = "/client";
         public static String routeLogin = "/user";
+        public static String getResponseServices = "/services";
     }
 }

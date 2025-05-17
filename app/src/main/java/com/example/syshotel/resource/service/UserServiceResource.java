@@ -13,6 +13,7 @@ import com.example.syshotel.resource.UserResource;
 import com.example.syshotel.resource.interfaces.ClientResourceInterface;
 import com.example.syshotel.resource.interfaces.LoginResourceInterface;
 import com.example.syshotel.resource.service.interfaces.UserServiceInterface;
+import com.example.syshotel.ui.home.HomeActivity;
 import com.example.syshotel.ui.user.LoginActivity;
 import com.example.syshotel.ui.user.RegisterActivity;
 
@@ -33,7 +34,8 @@ public class UserServiceResource implements UserServiceInterface {
             @Override
             public void onSuccess(ClientDto user) {
                 new Handler(Looper.getMainLooper()).post(() -> {
-                    Intent screenHome = new Intent(context, RegisterActivity.class);
+                    Intent screenHome = new Intent(context, HomeActivity.class);
+                    screenHome.putExtra("userData", user);
                     context.startActivity(screenHome);
                     ((Activity) context).finish();
                     Toast.makeText(context, "Autenticado com sucesso!", Toast.LENGTH_SHORT).show();
